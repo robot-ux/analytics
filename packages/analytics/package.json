@@ -1,0 +1,10 @@
+{
+  "name": "@bna/analytics",
+  "version": "0.0.1",
+  "description": "Simple wrapper of Analytics.js",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "analytics": "^0.7.5"
+  }
+}
