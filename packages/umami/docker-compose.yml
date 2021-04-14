@@ -1,0 +1,11 @@
+---
+version: '3'
+services:
+  umami:
+    image: ghcr.io/mikecao/umami:mysql-latest
+    ports:
+      - '3000:3000'
+    environment:
+      DATABASE_URL: mysql://test:test@localhost:3306/umami
+      DATABASE_TYPE: mysql
+      HASH_SALT: replace-me-with-a-random-string
