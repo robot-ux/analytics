@@ -21,3 +21,4 @@ jobs:
       - uses: plutotcool/release@v1.0.0
         with:
           npm_token: ${{ secrets.NPM_TOKEN }}
+          github_token: ${{ secrets.GH_TOKEN }}
