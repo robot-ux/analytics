@@ -10,7 +10,7 @@ yarn add analytics -S
 
 ```jsx
 /* example file src/analytics.js */
-import Analytics from 'analytics';
+import Analytics from '@bna/analytics';
 import umamiPlugin from '@bna/analytics-plugin-umami';
 
 const analytics = Analytics({
