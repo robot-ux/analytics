@@ -1,6 +1,7 @@
 {
-  "name": "@bna/analytics-plugin-umami",
+  "name": "@binance-chain/analytics-plugin-umami",
   "version": "0.0.1",
+  "private": true,
   "description": "Umami analytics plugin for 'analytics' module",
   "projectMeta": {
     "provider": {
@@ -13,8 +14,10 @@
       "node": "./dist/node.js"
     }
   },
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/types",
   "scripts": {
+    "prebuild": "rm -rf ./dist",
     "build": "tsc && yarn build:umd",
     "build:umd": "rollup -c rollup.config.js"
   },

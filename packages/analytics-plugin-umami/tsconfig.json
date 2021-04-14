@@ -5,6 +5,7 @@
     "noEmit": false,
     "declaration": true,
     "resolveJsonModule": false,
+    "declarationDir": "dist/types",
     "module": "ES2015"
   },
   "include": [

@@ -1,8 +1,12 @@
 {
-  "name": "@bna/analytics",
+  "name": "@binance-chain/analytics",
   "version": "0.0.1",
-  "description": "Simple wrapper of Analytics.js",
+  "private": true,
+  "description": "Simple wrapper of analytics Layer",
   "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
   "license": "MIT",
   "dependencies": {
     "analytics": "^0.7.5"

@@ -1,5 +1,5 @@
 {
-  "name": "bna",
+  "name": "analytics",
   "version": "1.0.0",
   "private": true,
   "workspaces": [
@@ -8,15 +8,10 @@
   "scripts": {
     "publish": "lerna publish"
   },
-  "prettier": {
-    "parser": "typescript",
-    "singleQuote": true,
-    "semi": false,
-    "trailingComma": "all",
-    "tabWidth": 2
-  },
+  "prettier": "@binance-chain/prettier-config",
   "license": "MIT",
   "devDependencies": {
+    "@binance-chain/prettier-config": "^1.0.1",
     "lerna": "^4.0.0",
     "typescript": "^4.2.4"
   },

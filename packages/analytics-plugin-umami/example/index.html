@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <!-- <script src="https://unpkg.com/analytics/dist/analytics.min.js"></script> -->
-  <script src="../dist/umd/analytics-with-umami.js"></script>
-  <script type="text/javascript">
-    var i=function(w,fn){w[fn]||(w[fn]=function(){(w[fn].q=w[fn].q||[]).push(arguments)})}
-    i(window,'_analytics');
-    i(window._analytics, 'init');
-    i(window._analytics, 'track');
-    i(window._analytics, 'page');
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script src="https://unpkg.com/analytics/dist/analytics.min.js"></script> -->
+    <script src="../dist/umd/analytics-with-umami.min.js"></script>
+    <script type="text/javascript">
+      var c = function (n, fns) {
+        var _n = (window[n] = window[n] || {});
+        for (var i = 0; i < fns.length; i++) {
+          (function (_i) {
+            var fn = fns[_i];
+            _n[fn] ||
+              (_n[fn] = function () {
+                (_n[fn].q = _n[fn].q || []).push(arguments);
+              });
+          })(i);
+        }
+      };
+      c('_analytics', ['init', 'track', 'page']);
 
-    /* Initialize analytics */
-    _analytics.init({
-      id: '2455d925-489d-4d28-be36-ad43c144e6af',
-      domain: 'http://localhost:3000',
-    })
-  
-    _analytics.page();
-  </script>
-</body>
+      /* Initialize analytics */
+      _analytics.init({
+        id: '2455d925-489d-4d28-be36-ad43c144e6af',
+        domain: 'http://localhost:3000',
+      });
+
+      _analytics.page();
+    </script>
+  </body>
 </html>
