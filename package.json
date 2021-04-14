@@ -6,7 +6,7 @@
     "packages/*"
   ],
   "scripts": {
-    "publish": "lerna publish -y",
+    "publish": "lerna publish",
     "build": "lerna run build --parallel"
   },
   "prettier": "@binance-chain/prettier-config",
