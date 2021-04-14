@@ -18,6 +18,6 @@ jobs:
           node-version: 12
       - run: yarn install --frozen-lockfile
       - run: yarn build
-      - uses: plutotcool/release@v1
+      - uses: plutotcool/release@v1.0.0
         with:
           npm_token: ${{ secrets.NPM_TOKEN }}
