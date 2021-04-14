@@ -1,7 +1,6 @@
 {
-  "name": "@binance-chain/analytics-plugin-umami",
+  "name": "@bna/analytics-plugin-umami",
   "version": "0.0.1",
-  "private": true,
   "description": "Umami analytics plugin for 'analytics' module",
   "projectMeta": {
     "provider": {
@@ -13,6 +12,9 @@
       "browser": "./dist/umd/index.js",
       "node": "./dist/node.js"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "main": "./dist/index.js",
   "types": "./dist/types",

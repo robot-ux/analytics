@@ -10,15 +10,15 @@ Below is an example of how to use the browser plugin.
 #### Using npm:
 
 ```jsx
-import Analytics from '@binance-chain/analytics';
-import umamiAnalytics from '@binance-chain/analytics-plugin-umami';
+import Analytics from '@bna/analytics';
+import umamiAnalytics from '@bna/analytics-plugin-umami';
 
 const analytics = Analytics({
   app: 'awesome-app',
   plugins: [
     umamiAnalytics({
-      id: 'UA-1234567',
-      domain: 'https://your.umami.domain/',
+      id: '2455d925-489d-4d28-be36-ad43c144e6af',
+      reportUri: 'https://your.umami.reportUri',
     }),
   ],
 });
@@ -32,6 +32,9 @@ analytics.track('playedVideo', {
   label: 'Fall Campaign',
   value: 42,
 });
+
+/* export the instance for usage in your app */
+export default analytics;
 ```
 
 #### Using script tag:
@@ -56,7 +59,7 @@ analytics.track('playedVideo', {
   /* Initialize analytics */
   _analytics.init({
     id: '2455d925-489d-4d28-be36-ad43c144e6af',
-    domain: 'http://localhost:3000',
+    reportUri: 'http://localhost:3000',
   });
 
   _analytics.page();

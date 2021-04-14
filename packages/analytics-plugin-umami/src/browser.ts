@@ -1,8 +1,8 @@
-import { trackView, trackEvent } from './umami'
+import { trackView, trackEvent } from './umami';
 
 export interface IUserConfig {
-  id: string
-  domain: string
+  id: string;
+  reportUri: string;
 }
 
 export default function umamiAnalyticsPlugin(userConfig: IUserConfig) {
@@ -13,14 +13,14 @@ export default function umamiAnalyticsPlugin(userConfig: IUserConfig) {
     /* Everything else below this is optional depending on your plugin requirements */
     config: {
       id: userConfig.id,
-      domain: userConfig.domain,
+      reportUri: userConfig.reportUri,
     },
     initialize: () => {
       // load provider script to page
     },
     page: ({ config }: any) => {
       // call provider specific page tracking
-      trackView({ uuid: config.id, domain: config.domain })
+      trackView({ uuid: config.id, reportUri: config.reportUri });
     },
     track: ({ payload, config }: any) => {
       // call provider specific event tracking
@@ -31,16 +31,16 @@ export default function umamiAnalyticsPlugin(userConfig: IUserConfig) {
         },
         {
           uuid: config.id,
-          domain: config.domain,
+          reportUri: config.reportUri,
         },
-      )
+      );
     },
     identify: () => {
       // call provider specific user identify method
     },
     loaded: () => {
       // return boolean so analytics knows when it can send data to third party
-      return true
+      return true;
     },
-  }
+  };
 }

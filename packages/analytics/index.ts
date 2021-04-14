@@ -1,3 +1,3 @@
-import analytics from 'analytics'
+import analytics from 'analytics';
 
-export default analytics
+export default analytics;
