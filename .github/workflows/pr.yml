@@ -5,14 +5,14 @@ on:
     types: [created]
 
 jobs:
-  deploy-check:
+  get-command:
     runs-on: ubuntu-latest
     steps:
-      - name: acknowledge deployment request to commenter
+      - name: execute a command
         id: check
         uses: khan/pull-request-comment-trigger@master
         with:
-          trigger: '/deploy'
+          trigger: '/release'
           reaction: rocket
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
@@ -21,7 +21,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: deploy-check
+    needs: get-command
     if: needs.deploy-check.outputs.triggered == 'true'
     steps:
       - name: get pull request ref
@@ -53,8 +53,8 @@ jobs:
           route: POST /repos/:repository/deployments/:deployment/statuses
           repository: ${{ github.repository }}
           deployment: ${{ fromJson(steps.create_deployment.outputs.data).id }}
-          environment: dev
-          environment_url: https://example.com
+          # environment: dev
+          # environment_url: https://example.com
           log_url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           state: in_progress
           mediaType: '{"previews": ["flash", "ant-man"]}'
@@ -62,11 +62,16 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: deploy the pull request
-        run: |
-          # deployment logic goes here
-          sleep 10
-          # instead we randomly succeed or fail the deployment
-          exit $(( $RANDOM % 10 >= 5 ))
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v2
+          with:
+            node-version: 12
+        - run: yarn install --frozen-lockfile
+        - run: yarn build
+        - run: yarn run publish --canary --yes
+          env:
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: set deployment status to success
         id: successful_deployment
         uses: octokit/request-action@v2.x
@@ -74,8 +79,8 @@ jobs:
           route: POST /repos/:repository/deployments/:deployment/statuses
           repository: ${{ github.repository }}
           deployment: ${{ fromJson(steps.create_deployment.outputs.data).id }}
-          environment: dev
-          environment_url: https://example.com
+          # environment: dev
+          # environment_url: https://example.com
           log_url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           mediaType: '{"previews": ["ant-man"]}'
           state: success
@@ -90,8 +95,8 @@ jobs:
           route: POST /repos/:repository/deployments/:deployment/statuses
           repository: ${{ github.repository }}
           deployment: ${{ fromJson(steps.create_deployment.outputs.data).id }}
-          environment: dev
-          environment_url: https://example.com
+          # environment: dev
+          # environment_url: https://example.com
           log_url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           mediaType: '{"previews": ["ant-man"]}'
           state: failure
