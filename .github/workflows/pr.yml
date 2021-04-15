@@ -22,7 +22,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: get-command
-    if: needs.deploy-check.outputs.triggered == 'true'
+    if: needs.get-command.outputs.triggered == 'true'
     steps:
       - name: get pull request ref
         id: get_pull_request_ref
@@ -62,21 +62,20 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: deploy the pull request
-        - uses: actions/checkout@v2
-        - name: Setup git user
-          run: |
-            git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
-            git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
-        - uses: actions/setup-node@v2
-          with:
-            node-version: 12
-            registry-url: 'https://registry.npmjs.org'
-            scope: '@bna'
-        - run: yarn install --frozen-lockfile
-        - run: yarn build
-        - run: yarn run publish --canary --yes
-          env:
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        uses: actions/checkout@v2
+        run: |
+          git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
+          git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@bna'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - run: yarn run publish canary --yes
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: set deployment status to success
         id: successful_deployment
