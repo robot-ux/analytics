@@ -71,6 +71,7 @@ jobs:
           with:
             node-version: 12
             registry-url: 'https://registry.npmjs.org'
+            scope: '@bna'
         - run: yarn install --frozen-lockfile
         - run: yarn build
         - run: yarn run publish --canary --yes
