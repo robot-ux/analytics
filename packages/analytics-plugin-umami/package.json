@@ -1,6 +1,6 @@
 {
   "name": "@bna/analytics-plugin-umami",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Umami analytics plugin for 'analytics' module",
   "projectMeta": {
     "provider": {
