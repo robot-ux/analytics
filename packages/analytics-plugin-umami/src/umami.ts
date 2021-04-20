@@ -2,10 +2,10 @@ const _getCommonPayload = () => {
   const {
     screen: { width, height },
     navigator: { language },
-    location: { hostname, pathname, search },
+    location: { hostname, href },
   } = window;
-  const url = `${pathname}${search}`;
-  const referrer = document.referrer;
+  const url = `${href}`;
+  const referrer = document.referrer || 'unknown';
   const screen = `${width}x${height}`;
   const key = 'umami.cache';
   const cache = sessionStorage.getItem(key);
