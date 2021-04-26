@@ -27,3 +27,4 @@ const analytics = Analytics({
 /* export the instance for usage in your app */
 export default analytics;
 ```
+
