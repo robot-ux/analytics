@@ -1,6 +1,6 @@
 {
   "name": "@bna/analytics",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Simple wrapper of analytics Layer",
   "publishConfig": {
     "access": "public"
