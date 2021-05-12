@@ -1,0 +1,37 @@
+{
+  "name": "@bna/analytics-plugin-ga",
+  "version": "0.0.13",
+  "description": "Ga analytics plugin for 'analytics' module",
+  "projectMeta": {
+    "provider": {
+      "name": "Ga Analytics",
+      "url": "https://umami.is/"
+    },
+    "windowGlobal": "analyticsGa",
+    "platforms": {
+      "browser": "./dist/umd/index.js",
+      "node": "./dist/node.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/types",
+  "scripts": {
+    "watch": "tsc -w",
+    "prebuild": "rm -rf ./dist",
+    "build": "tsc"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/uuid": "^8.3.0"
+  },
+  "dependencies": {
+    "analytics": "^0.7.5",
+    "uuid": "^8.3.2"
+  }
+}
