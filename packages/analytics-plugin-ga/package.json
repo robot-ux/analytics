@@ -1,6 +1,6 @@
 {
   "name": "@bna/analytics-plugin-ga",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Ga analytics plugin for 'analytics' module",
   "projectMeta": {
     "provider": {
