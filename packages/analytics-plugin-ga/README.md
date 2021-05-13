@@ -7,8 +7,8 @@ Below is an example of how to use the browser plugin.
 #### Using npm:
 
 ```jsx
-import Analytics from '@bna/analytics';
-import Ga from '@bna/analytics-plugin-ga';
+import Analytics from '@binance-chain/analytics';
+import Ga from '@binance-chain/analytics-plugin-ga';
 
 const analytics = Analytics({
   app: 'awesome-app',

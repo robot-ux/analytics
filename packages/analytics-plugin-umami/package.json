@@ -1,5 +1,5 @@
 {
-  "name": "@bna/analytics-plugin-umami",
+  "name": "@binance-chain/analytics-plugin-umami",
   "version": "0.0.14",
   "description": "Umami analytics plugin for 'analytics' module",
   "projectMeta": {

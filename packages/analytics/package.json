@@ -1,5 +1,5 @@
 {
-  "name": "@bna/analytics",
+  "name": "@binance-chain/analytics",
   "version": "0.0.14",
   "description": "Simple wrapper of analytics Layer",
   "publishConfig": {

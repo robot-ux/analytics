@@ -10,8 +10,8 @@ yarn add analytics -S
 
 ```jsx
 /* example file src/analytics.js */
-import Analytics from '@bna/analytics';
-import umamiPlugin from '@bna/analytics-plugin-umami';
+import Analytics from '@binance-chain/analytics';
+import umamiPlugin from '@binance-chain/analytics-plugin-umami';
 
 const analytics = Analytics({
   app: 'your-app-name',
@@ -27,4 +27,3 @@ const analytics = Analytics({
 /* export the instance for usage in your app */
 export default analytics;
 ```
-

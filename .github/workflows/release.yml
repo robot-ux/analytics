@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 12
           registry-url: 'https://registry.npmjs.org'
-          scope: '@bna'
+          scope: '@binance-chain'
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: yarn run publish patch --yes

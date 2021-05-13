@@ -10,8 +10,8 @@ Below is an example of how to use the browser plugin.
 #### Using npm:
 
 ```jsx
-import Analytics from '@bna/analytics';
-import umamiAnalytics from '@bna/analytics-plugin-umami';
+import Analytics from '@binance-chain/analytics';
+import umamiAnalytics from '@binance-chain/analytics-plugin-umami';
 
 const analytics = Analytics({
   app: 'awesome-app',
