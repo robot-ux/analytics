@@ -1,6 +1,6 @@
 {
   "name": "@binance-chain/analytics-plugin-ga",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Ga analytics plugin for 'analytics' module",
   "projectMeta": {
     "provider": {

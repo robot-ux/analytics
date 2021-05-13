@@ -1,6 +1,6 @@
 {
   "name": "@binance-chain/analytics",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Simple wrapper of analytics Layer",
   "publishConfig": {
     "access": "public"
